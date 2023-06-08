@@ -1,4 +1,4 @@
-package com.example.writingchallenge;
+package com.example.writingchallenge.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,6 +10,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.writingchallenge.HelperClass;
+import com.example.writingchallenge.R;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 

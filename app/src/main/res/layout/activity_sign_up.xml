@@ -7,7 +7,7 @@
     android:background="@drawable/pagebkg"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".signUp">
+    tools:context=".activities.signUp">
 
 
     <androidx.cardview.widget.CardView

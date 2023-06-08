@@ -1,4 +1,4 @@
-package com.example.writingchallenge;
+package com.example.writingchallenge.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,7 +10,8 @@ import android.os.Handler;
 import android.view.WindowInsets;
 import android.view.WindowInsetsController;
 import android.view.WindowManager;
-import android.widget.TextView;
+
+import com.example.writingchallenge.R;
 
 public class SplashActivity extends AppCompatActivity {
 
