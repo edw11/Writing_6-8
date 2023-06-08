@@ -169,13 +169,48 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/notesRecyclerView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="@dimen/_180sdp"
             android:layout_marginStart="@dimen/_2sdp"
             android:layout_marginEnd="@dimen/_2sdp"
             android:clipToPadding="false"
+            app:layout_constraintBottom_toTopOf="@id/challenge"
             android:paddingStart="0dp"
             android:paddingEnd="@dimen/_12sdp"
-            android:paddingBottom="@dimen/_12sdp"/>
+            android:paddingBottom="@dimen/_12sdp">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+        <LinearLayout
+            android:id="@+id/challenge"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <TextView
+                android:id="@+id/challenge2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/semibold"
+                android:paddingLeft="27dp"
+                android:text="Your Challenge"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"></TextView>
+
+            <TextView
+                android:id="@+id/challenge1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="27dp"
+                android:textColor="@color/grey"
+                android:fontFamily="@font/regular"
+                android:paddingBottom="5dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"></TextView>
+        </LinearLayout>
 
 
     </LinearLayout>

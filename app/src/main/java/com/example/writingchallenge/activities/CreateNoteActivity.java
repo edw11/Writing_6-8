@@ -7,12 +7,11 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
-
 import com.example.writingchallenge.R;
 import com.example.writingchallenge.database.NotesDatabase;
 import com.example.writingchallenge.entities.Note;
@@ -23,8 +22,12 @@ import java.util.Locale;
 
 public class CreateNoteActivity extends AppCompatActivity {
 
+
     private EditText inputNoteTitle, inputNoteSubtitle, inputNoteText;
     private TextView textDateTime;
+    Button generate;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,17 +42,27 @@ public class CreateNoteActivity extends AppCompatActivity {
         inputNoteSubtitle = findViewById(R.id.inputNoteSubtitle);
         inputNoteText = findViewById(R.id.inputNote);
         textDateTime = findViewById(R.id.textDateTime);
-
+        generate = (Button) findViewById(R.id.generate);
         textDateTime.setText(new SimpleDateFormat("EEE, dd MMMM yyyy HH:mm a", Locale.getDefault()).format(new Date()));
 
         ImageView imageSave = findViewById(R.id.imageSave);
+
+        generate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                inputNoteTitle.setText("Generation 1");
+
+            }
+        });
         imageSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 saveNote();
             }
         });
     }
+
 
     private  void saveNote(){
         if(inputNoteTitle.getText().toString().trim().isEmpty()){

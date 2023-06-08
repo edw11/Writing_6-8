@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Adapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -20,7 +21,7 @@ import com.example.writingchallenge.entities.Note;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity   {
 
     public static final int REQUEST_CODE_ADD_NOTE = 1;
 
@@ -28,21 +29,31 @@ public class MainActivity extends AppCompatActivity {
     private List<Note> noteList;
     private NotesAdapter notesAdapter;
     TextView userProfile;
+    TextView challengeText;
+
+    int challenge1 = 1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ImageView imageNote = findViewById(R.id.arrow);
+        challengeText = findViewById(R.id.challenge1);
+
 
         imageNote.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivityForResult(
                         new Intent(getApplicationContext(), CreateNoteActivity.class),
-                        REQUEST_CODE_ADD_NOTE)
-                ;
+                        REQUEST_CODE_ADD_NOTE);
+
+                challengeText.setText("you have completed " + challenge1 + " challenge");
             }
         });
+
+
+
         userProfile = findViewById(R.id.name);
         ShowName();
 
@@ -55,7 +66,10 @@ public class MainActivity extends AppCompatActivity {
 
         getNotes();
 
+
     }
+
+
     private void getNotes (){
 
         @SuppressLint("StaticFieldLeak")
@@ -80,6 +94,14 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         new GetNotesTask().execute();
+    }
+
+    public void ChallengeTask(){
+        challengeText = findViewById(R.id.challenge1);
+        if (noteList.size()!=0){
+            int size = noteList.size();
+            challengeText.setText("You have Completed"+ size +  "Challenge");
+        }
     }
 
     public void ShowName(){
