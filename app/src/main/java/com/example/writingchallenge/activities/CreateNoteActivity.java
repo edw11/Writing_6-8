@@ -51,7 +51,7 @@ public class CreateNoteActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 inputNoteTitle.setText("Generation 1");
-
+                MainActivity.challengeText.setText("you have completed " + 1 + " challenge");
             }
         });
         imageSave.setOnClickListener(new View.OnClickListener() {

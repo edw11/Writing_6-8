@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">Writing Challenge</string>
-    <string name="history">이전 읽기 다시보기</string>
+    <string name="history">Your History</string>
 </resources>

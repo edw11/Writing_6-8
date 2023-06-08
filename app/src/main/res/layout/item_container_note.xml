@@ -17,7 +17,7 @@
         android:layout_marginTop="@dimen/_8sdp"
         android:fontFamily="@font/ibmbold"
         android:includeFontPadding="false"
-        android:textColor="@color/white"
+        android:textColor="@color/purple_200"
         android:textSize="@dimen/_13ssp"></TextView>
 
     <TextView
@@ -30,7 +30,7 @@
         android:layout_marginBottom="@dimen/_4sdp"
         android:fontFamily="@font/regular"
         android:includeFontPadding="false"
-        android:textColor="@color/colorNoteSubtitleText"
+        android:textColor="@color/purple_200"
         android:textSize="@dimen/_12ssp"></TextView>
 
     <TextView
@@ -42,7 +42,7 @@
         android:layout_marginBottom="@dimen/_8sdp"
         android:fontFamily="@font/regular"
         android:includeFontPadding="false"
-        android:textColor="@color/colorNoteSubtitleText"
+        android:textColor="@color/purple_200"
         android:textSize="@dimen/_7ssp"
         ></TextView>
 

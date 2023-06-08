@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity   {
     private List<Note> noteList;
     private NotesAdapter notesAdapter;
     TextView userProfile;
-    TextView challengeText;
+    static TextView challengeText;
 
     int challenge1 = 1;
 
@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity   {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ImageView imageNote = findViewById(R.id.arrow);
+        ImageView imageBook = findViewById(R.id.book1);
         challengeText = findViewById(R.id.challenge1);
 
 
@@ -48,7 +49,13 @@ public class MainActivity extends AppCompatActivity   {
                         new Intent(getApplicationContext(), CreateNoteActivity.class),
                         REQUEST_CODE_ADD_NOTE);
 
-                challengeText.setText("you have completed " + challenge1 + " challenge");
+            }
+        });
+
+        imageBook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivityForResult(new Intent(getApplicationContext(), stickerActivities.class), REQUEST_CODE_ADD_NOTE);
             }
         });
 
