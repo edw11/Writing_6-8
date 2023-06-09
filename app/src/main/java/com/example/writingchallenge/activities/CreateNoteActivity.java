@@ -27,6 +27,7 @@ public class CreateNoteActivity extends AppCompatActivity {
     private TextView textDateTime;
     Button generate;
 
+    public static int challenge = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,14 +52,20 @@ public class CreateNoteActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 inputNoteTitle.setText("Generation 1");
-                MainActivity.challengeText.setText("you have completed " + 1 + " challenge");
+               //MainActivity.challengeText.setText("you have completed " + (challenge = challenge + 1) + " challenge");
+                challenge = challenge + 1;
+               //MainActivity.challengeText.setText("you have completed " + challenge  + " challenge");
             }
         });
+
+
         imageSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 saveNote();
+                challenge = challenge + 1;
+                MainActivity.challengeText.setText("you have completed " + (challenge-1)  + " challenge");
             }
         });
     }

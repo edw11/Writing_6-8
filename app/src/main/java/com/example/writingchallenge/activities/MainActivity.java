@@ -1,5 +1,6 @@
 package com.example.writingchallenge.activities;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
@@ -29,6 +30,8 @@ public class MainActivity extends AppCompatActivity   {
     private List<Note> noteList;
     private NotesAdapter notesAdapter;
     TextView userProfile;
+
+    TextView intentChallenge;
     static TextView challengeText;
 
     int challenge1 = 1;
@@ -40,16 +43,22 @@ public class MainActivity extends AppCompatActivity   {
         ImageView imageNote = findViewById(R.id.arrow);
         ImageView imageBook = findViewById(R.id.book1);
         challengeText = findViewById(R.id.challenge1);
-
+        intentChallenge = findViewById(R.id.challenge2);
 
         imageNote.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivityForResult(
                         new Intent(getApplicationContext(), CreateNoteActivity.class),
-                        REQUEST_CODE_ADD_NOTE);
+                        REQUEST_CODE_ADD_NOTE);}
+        });
 
-            }
+        intentChallenge.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivityForResult(
+                        new Intent(getApplicationContext(), challengeActivities.class),
+                        REQUEST_CODE_ADD_NOTE);}
         });
 
         imageBook.setOnClickListener(new View.OnClickListener() {
@@ -101,6 +110,14 @@ public class MainActivity extends AppCompatActivity   {
             }
         }
         new GetNotesTask().execute();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_CODE_ADD_NOTE && resultCode == RESULT_OK ){
+            getNotes();
+        }
     }
 
     public void ChallengeTask(){
